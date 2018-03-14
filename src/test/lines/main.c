@@ -1,8 +1,8 @@
-#include "rectangle.h"
+#include "line.h"
 #include <time.h>
 #include <signal.h>
 
-#define NUM_RECTS 50
+#define NUM_LINES 50
 
 static void sig(int signum)
 {
@@ -26,18 +26,14 @@ int main()
 	}
 	while (1)
 	{
-		int x1, x2, y1, y2, w, h;
+		int x1, x2, y1, y2, w, h, r;
 		clear_tempbuffer();
-		for (int i = 0; i < NUM_RECTS; ++i)
+		for (int i = 0; i < NUM_LINES; ++i)
 		{
 			x1 = rand() % xres; x2 = rand() % xres;
 			y1 = rand() % yres; y2 = rand() % yres;
 
-			w = abs(x2-x1);
-			h = abs(y2-y1);
-			if (x1 > x2) x1 = x2;
-			if (y1 > y2) y1 = y2;
-			rectangle(x1, y1, w, h, (uint32_t) rand());
+			line(x1, y1, x2, y2, (uint32_t) rand());
 		}
 
 		write_framebuffer();

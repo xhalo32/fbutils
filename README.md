@@ -2,8 +2,8 @@
 Framebuffer drawing utilities made in C.
 
 ### Commands for compiling the library
-- Compile to object with PIC `gcc -c -fPIC -O2 fbuffer.c pixel.c rectangle.c`
-- Combine the object to a library `gcc -shared -o libfbutils.so fbuffer.o pixel.o rectangle.o`
+- Compile to object with PIC `gcc -c -fPIC -O2 fbuffer.c pixel.c rectangle.c circle.c line.c`
+- Combine the object to a library `gcc -shared -o libfbutils.so fbuffer.o pixel.o rectangle.o circle.o line.o`
 
 ### Commands for compiling and running test programs
 - Compile a test program `gcc -I/absolute_path_to_fbutils/src -L/absolute_path_to_fbutils/src -l:libfbutils.so -o main main.c`

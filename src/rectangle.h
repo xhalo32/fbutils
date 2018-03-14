@@ -5,5 +5,6 @@
 #include "pixel.h"
 
 void rectangle(int, int, int, int, uint32_t);
+void rectangle_fill(int, int, int, int, uint32_t);
 
 #endif // __RECTANGLE_H

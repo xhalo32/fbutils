@@ -1,8 +1,8 @@
-#include "rectangle.h"
+#include "circle.h"
 #include <time.h>
 #include <signal.h>
 
-#define NUM_RECTS 50
+#define NUM_CIRCLES 50
 
 static void sig(int signum)
 {
@@ -26,18 +26,23 @@ int main()
 	}
 	while (1)
 	{
-		int x1, x2, y1, y2, w, h;
+		int x1, x2, y1, y2, w, h, r;
 		clear_tempbuffer();
-		for (int i = 0; i < NUM_RECTS; ++i)
+		for (int i = 0; i < NUM_CIRCLES; ++i)
 		{
+			/*
 			x1 = rand() % xres; x2 = rand() % xres;
 			y1 = rand() % yres; y2 = rand() % yres;
 
 			w = abs(x2-x1);
 			h = abs(y2-y1);
+			r = w;
+			if (h<r) r = h;
 			if (x1 > x2) x1 = x2;
 			if (y1 > y2) y1 = y2;
-			rectangle(x1, y1, w, h, (uint32_t) rand());
+			circle(x1+r, y1+r, 2*r, (uint32_t) rand()); */
+			circle_fill(400,250,200,(uint32_t) rand());
+			circle(400,250,200, (uint32_t) rand());
 		}
 
 		write_framebuffer();
