@@ -1,4 +1,6 @@
 #include "circle.h"
+#include "rectangle.h"
+
 #include <time.h>
 #include <signal.h>
 
@@ -19,30 +21,20 @@ int main()
 	signal(SIGINT,  sig);
 	signal(SIGTERM, sig);
 
-	srand(0);
 	if (open_framebuffer())
 	{
 		return 1;
 	}
 	while (1)
 	{
-		int x1, x2, y1, y2, w, h, r;
 		clear_tempbuffer();
 		for (int i = 0; i < NUM_CIRCLES; ++i)
 		{
-			/*
-			x1 = rand() % xres; x2 = rand() % xres;
-			y1 = rand() % yres; y2 = rand() % yres;
-
-			w = abs(x2-x1);
-			h = abs(y2-y1);
-			r = w;
-			if (h<r) r = h;
-			if (x1 > x2) x1 = x2;
-			if (y1 > y2) y1 = y2;
-			circle(x1+r, y1+r, 2*r, (uint32_t) rand()); */
-			circle_fill(400,250,200,(uint32_t) rand());
-			circle(400,250,200, (uint32_t) rand());
+			int r = 2*yres/5;
+			rectangle(xres/2-r,yres/2-r,2*r,2*r,(uint32_t) rand());
+			uint32_t col = (uint32_t) rand();
+			circle_fill(xres/2,yres/2,r,col);
+			circle(xres/2,yres/2,r,~col);
 		}
 
 		write_framebuffer();

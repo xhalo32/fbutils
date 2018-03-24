@@ -37,7 +37,10 @@ int main()
 			h = abs(y2-y1);
 			if (x1 > x2) x1 = x2;
 			if (y1 > y2) y1 = y2;
-			rectangle(x1, y1, w, h, (uint32_t) rand());
+			if (rand()%2)
+				rectangle(x1, y1, w, h, (uint32_t) rand());
+			else
+				rectangle_fill(x1, y1, w, h, (uint32_t) rand());
 		}
 
 		write_framebuffer();

@@ -11,9 +11,9 @@ int main()
 	clear_framebuffer();
 	
 	pixel(0,0,0x0000FFFF);
-	pixel(xres-1,0,0x0000FFFF);
-	pixel(0,yres-1,0x0000FFFF);
-	pixel(xres-1,yres-1,0x0000FFFF);
+	pixel(xres-2,0,0x0000FFFF);
+	pixel(0,yres-2,0x0000FFFF);
+	pixel(xres-2,yres-2,0x0000FFFF);
 
 	write_framebuffer();
 	

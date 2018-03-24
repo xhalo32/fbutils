@@ -2,7 +2,7 @@
 #include <time.h>
 #include <signal.h>
 
-#define NUM_LINES 50
+#define NUM_LINES 2000
 
 static void sig(int signum)
 {
@@ -37,7 +37,5 @@ int main()
 		}
 
 		write_framebuffer();
-
-		usleep(100*1000);
 	}
 }
