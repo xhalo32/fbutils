@@ -46,6 +46,7 @@ List of current test programs and their functions:
 - graphics support (cairo?)
 - opengl
 - website
+- python
 
 
 Created and maintained by Niklas Halonen
